@@ -86,6 +86,28 @@
 "output":[["EndTag", "a"]]
 },
 
+{"description":"Start tag spaces in attribute",
+"input":"<b ay = 'test'>",
+"output":[["StartTag", "b", {"ay":"test"}]]
+},
+
+{"description":"Start tag with empty attribute",
+"input":"<b ay>",
+"output":[["StartTag", "b", {"ay":""}]]
+},
+
+{"description":"Start tag with empty attributes",
+"input":"<b ay az>",
+"output":[["StartTag", "b", {"ay":"", "az":""}]]
+},
+
+{"description":"Empty tag with empty attribute",
+"input":"<b ay/>",
+"output":[["EmptyTag", "b", {"ay":""}]]
+},
+
+
+
 {"description":"End tag name after state with attr",
 "input":"</a f='x'>",
 "output":["ParseError", "ParseError", "ParseError", "ParseError", "ParseError", ["EndTag", "a"]]
@@ -104,6 +126,16 @@
 {"description":"PI tag with '?' in target",
 "input":"<??xml \t\n m?>",
 "output":[["PI", "?xml", "m"]]
+},
+
+{"description":"PI tag with '?' in PiAfter state",
+"input":"<?xml \t\n m?>",
+"output":[["PI", "xml", "m"]]
+},
+
+{"description":"PI tag with char in PiAfter state",
+"input":"<?xml \t\n ?m?>",
+"output":[["PI", "xml", "m"]]
 },
 
 {"description":"Comment",
@@ -139,6 +171,11 @@
 {"description":"CDATA state",
 "input":"<![CDATA[&amping ]]]>",
 "output":[["Character", "&amping ]"]]
+},
+
+{"description":"CDATA bracket text state",
+"input":"<![CDATA[bracket ]after]]>",
+"output":[["Character", "bracket ]after"]]
 },
 
 {"description":"CDATA state",
