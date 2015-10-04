@@ -90,15 +90,3 @@ emitted by the input stream preprocessing stage, since it is useful to
 test that code but it is undefined when the errors occur). If it is
 omitted, it defaults to `false`.
 
-xmlViolation tests
-------------------
-
-`tokenizer/xmlViolation.test` differs from the above in a couple of
-ways:
-
--   The name of the single member of the top-level JSON object is
-    "xmlViolationTests" instead of "tests".
--   Each test's expected output assumes that implementation is applying
-    the tweaks given in the spec's "Coercing an HTML DOM into an
-    infoset" section.
-
