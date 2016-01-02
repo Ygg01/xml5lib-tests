@@ -1,0 +1,87 @@
+#data
+<a xmlns = "www.example.org"></a>
+#document
+| <{www.example.org}a>
+|   {http://www.w3.org/2000/xmlns/}xmlns="www.example.org"
+
+#data
+<a xmlns:xml = "www.example.org"></a>
+#document
+| <a>
+|   xmlns:xml="www.example.org"
+
+#data
+<a xmlns:n1="www.example.org/n1"><n1:a/></a>
+#document
+| <a>
+|   {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org/n1"
+|   <{www.example.org/n1}n1:a>
+
+#data
+<a><b xmlns:n1="www.example.org/n1"><n1:c></a>
+#document
+| <a>
+|   <b>
+|     {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org/n1"
+|     <{www.example.org/n1}n1:c>
+
+#data
+<a><b xmlns:n1="www.example.org/n1"/><n1:c></a>
+#document
+| <a>
+|   <b>
+|     {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org/n1"
+|   <n1:c>
+
+#data
+<a><b xmlns:n1="www.example.org/n1"><x/></b><n1:c></a>
+#document
+| <a>
+|   <b>
+|     {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org/n1"
+|     <x>
+|   <n1:c>
+
+#data
+<a><b xmlns:n1="www.example.org/n1"><n1:x><n1:b/></n1:x></b><n1:c></a>
+#document
+| <a>
+|   <b>
+|     {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org/n1"
+|     <{www.example.org/n1}n1:x>
+|       <{www.example.org/n1}n1:b>
+|   <n1:c>
+
+#data
+<a><b xmlns:n1="www.example.org/n1"><n1:x xmlns:n1="www.example.org/n_1"><n1:b/></n1:x></b><n1:c></a>
+#document
+| <a>
+|   <b>
+|     {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org/n1"
+|     <{www.example.org/n_1}n1:x>
+|       {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org/n_1"
+|       <{www.example.org/n_1}n1:b>
+|   <n1:c>
+
+#data
+<a><b xmlns:n1="x"><n1:x xmlns:n1=""><n1:b><n1:b2 xmlns:n1="y"/></n1:b></n1:x><n1:c><n1:c2/></n1:c></b></a>
+#document
+| <a>
+|   <b>
+|     {http://www.w3.org/2000/xmlns/}xmlns:n1="x"
+|     <n1:x>
+|       {http://www.w3.org/2000/xmlns/}xmlns:n1=""
+|       <n1:b>
+|         <{y}n1:b2>
+|           {http://www.w3.org/2000/xmlns/}xmlns:n1="y"
+|     <{x}n1:c>
+|       <{x}n1:c2>
+
+#data
+<a xmlns="student" id="3"><b name="No NS"></a>
+#document
+| <{student}a>
+|   id="3"
+|   {http://www.w3.org/2000/xmlns/}xmlns="student"
+|   <{student}b>
+|     name="No NS"
