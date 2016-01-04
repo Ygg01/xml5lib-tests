@@ -3202,8 +3202,6 @@
 "input":"<!DOCTYPE{",
 "output":["ParseError", "ParseError", ["DOCTYPE", "{", null, null]]},
 
-
-
 {"description":"<!DOCTYPE\\uDBC0\\uDC00",
 "input":"<!DOCTYPE\uDBC0\uDC00",
 "output":["ParseError", "ParseError", ["DOCTYPE", "\uDBC0\uDC00", null, null]]},
@@ -3214,6 +3212,21 @@
 
 {"description":"<!DOCTYPE xhtml>",
 "input":"<!DOCTYPE xhtml>",
-"output":[["DOCTYPE", "xhtml", null, null]]}
+"output":[["DOCTYPE", "xhtml", null, null]]},
 
+{"description":"<!DOCTYPE with public and system id>",
+"input":"<!DOCTYPE xhtml PUBLIC '1' \"2\">",
+"output":[["DOCTYPE", "xhtml", "1", "2"]]},
+
+{"description":"<!DOCTYPE xhtml with public id>",
+"input":"<!DOCTYPE xhtml PUBLIC '1' >",
+"output":[["DOCTYPE", "xhtml", "1", null]]},
+
+{"description":"<!DOCTYPE xhtml with system id>",
+"input":"<!DOCTYPE xhtml SYSTEM '1' >",
+"output":[["DOCTYPE", "xhtml", null, "1"]]},
+
+{"description":"<!DOCTYPE xhtml with system unquoted>",
+"input":"<!DOCTYPE xhtml SYSTEM 1 >",
+"output":["ParseError", ["DOCTYPE", "xhtml", null, null]]}
 ]}
