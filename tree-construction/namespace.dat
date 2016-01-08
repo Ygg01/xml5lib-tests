@@ -72,3 +72,35 @@
 |   id="3"
 |   <{student}b>
 |     name="No NS"
+
+#data
+<a xmlns:n1="www.example.org" n1:x="val" />
+#document
+| <a>
+|   {www.example.org}n1:x="val"
+
+#data
+<a xmlns:n1="www.example.org" xmlns:n2="www.example.org" n1:x="val" n2:x="dupl"/>
+#document
+| <a>
+|   {www.example.org}n1:x="val"
+
+#data
+<a xmlns:n1="www.example.org" xmlns:n2="www.example.org"><bad a="1" a= "2"/><bad n1:a="1" n2:a="2"/></a>
+#document
+| <a>
+|   <bad>
+|     a="1"
+|   <bad>
+|     {www.example.org}n1:a="1"
+
+#data
+<a xmlns:n1="www.example.org" xmlns="www.example.org"><ok a="1" b="2"/><ok a="1" n1:a="2"/></a>
+#document
+| <{www.example.org}a>
+|   <{www.example.org}ok>
+|     a="1"
+|     b="2"
+|   <{www.example.org}ok>
+|     a="1"
+|     {www.example.org}n1:a="2"
