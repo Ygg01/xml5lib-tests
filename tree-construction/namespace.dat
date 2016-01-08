@@ -2,19 +2,16 @@
 <a xmlns = "www.example.org"></a>
 #document
 | <{www.example.org}a>
-|   {http://www.w3.org/2000/xmlns/}xmlns="www.example.org"
 
 #data
 <a xmlns:xml = "www.example.org"></a>
 #document
 | <a>
-|   xmlns:xml="www.example.org"
 
 #data
 <a xmlns:n1="www.example.org/n1"><n1:a/></a>
 #document
 | <a>
-|   {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org/n1"
 |   <{www.example.org/n1}n1:a>
 
 #data
@@ -22,7 +19,6 @@
 #document
 | <a>
 |   <b>
-|     {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org/n1"
 |     <{www.example.org/n1}n1:c>
 
 #data
@@ -30,7 +26,6 @@
 #document
 | <a>
 |   <b>
-|     {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org/n1"
 |   <n1:c>
 
 #data
@@ -38,7 +33,6 @@
 #document
 | <a>
 |   <b>
-|     {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org/n1"
 |     <x>
 |   <n1:c>
 
@@ -47,7 +41,6 @@
 #document
 | <a>
 |   <b>
-|     {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org/n1"
 |     <{www.example.org/n1}n1:x>
 |       <{www.example.org/n1}n1:b>
 |   <n1:c>
@@ -57,9 +50,7 @@
 #document
 | <a>
 |   <b>
-|     {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org/n1"
 |     <{www.example.org/n_1}n1:x>
-|       {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org/n_1"
 |       <{www.example.org/n_1}n1:b>
 |   <n1:c>
 
@@ -68,12 +59,9 @@
 #document
 | <a>
 |   <b>
-|     {http://www.w3.org/2000/xmlns/}xmlns:n1="x"
 |     <n1:x>
-|       {http://www.w3.org/2000/xmlns/}xmlns:n1=""
 |       <n1:b>
 |         <{y}n1:b2>
-|           {http://www.w3.org/2000/xmlns/}xmlns:n1="y"
 |     <{x}n1:c>
 |       <{x}n1:c2>
 
@@ -82,6 +70,5 @@
 #document
 | <{student}a>
 |   id="3"
-|   {http://www.w3.org/2000/xmlns/}xmlns="student"
 |   <{student}b>
 |     name="No NS"
