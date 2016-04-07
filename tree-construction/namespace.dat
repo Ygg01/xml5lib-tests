@@ -104,3 +104,16 @@
 |   <{www.example.org}ok>
 |     a="1"
 |     {www.example.org}n1:a="2"
+
+#data
+<a xmlns="www.example.org"><h><ok a="1"/></h><m><v n="v1"></v><v n="v2"></v></m></a>
+#document
+| <{www.example.org}a>
+|   <{www.example.org}h>
+|     <{www.example.org}ok>
+|       a="1"
+|   <{www.example.org}m>
+|     <{www.example.org}v>
+|       n="v1"
+|     <{www.example.org}v>
+|       n="v2"
