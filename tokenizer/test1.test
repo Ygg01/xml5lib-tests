@@ -158,10 +158,26 @@
 "output":["ParseError", ["Comment", ""]]
 },
 
+{"description":"<head> in Comment",
+"input":"<!--<head>-->",
+"output":[["Comment", "<head>"]]
+},
+
+{"description":">--< in Comment",
+"input":"<!-->>--<<-->",
+"output":[["Comment", ">>--<<"]]
+},
+
 {"description":"Short Bogus Comment",
 "input":"<!-->",
-"output":["ParseError", ["Comment", ""]]
+"output":["ParseError", ["Comment", ">"]]
 },
+
+{"description":"Short Bogus Comment2",
+"input":"<!-->test",
+"output":["ParseError", ["Comment", ">test"]]
+},
+
 
 {"description":"CDATA state",
 "input":"<![CDATA[&amping]]>",
