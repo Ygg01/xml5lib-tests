@@ -1,103 +1,123 @@
 #data
-<a xmlns = "www.example.org"></a>
+<a0 xmlns = "www.example.org"></a0>
 #document
-| <{www.example.org}a>
+| <{www.example.org}a0>
+|   {http://www.w3.org/2000/xmlns/}xmlns="www.example.org"
 
 #data
-<a xmlns:xml = "www.example.org"></a>
+<a1 xmlns:xml = "www.example.org"></a1>
 #document
-| <a>
+| <a1>
+|   xmlns:xml="www.example.org"
 
 #data
-<a xmlns:n1="www.example.org/n1"><n1:a/></a>
+<a2 xmlns:n1="www.example.org/example2"><n1:a2/></a2>
 #document
-| <a>
-|   <{www.example.org/n1}n1:a>
+| <a2>
+|   {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org/example2"
+|   <{www.example.org/example2}n1:a2>
 
 #data
-<a><b xmlns:n1="www.example.org/n1"><n1:c></a>
+<a3><b xmlns:n1="www.example.org/n3"><n1:c></a3>
 #document
-| <a>
+| <a3>
 |   <b>
-|     <{www.example.org/n1}n1:c>
+|     {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org/n3"
+|     <{www.example.org/n3}n1:c>
 
 #data
-<a><b xmlns:n1="www.example.org/n1"/><n1:c></a>
+<a4><b xmlns:n1="www.example.org/n4"/><n1:c></a4>
 #document
-| <a>
+| <a4>
 |   <b>
+|     {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org/n4"
 |   <n1:c>
 
 #data
-<a><b xmlns:n1="www.example.org/n1"><x/></b><n1:c></a>
+<a5><b xmlns:n1="www.example.org/example"><x/></b><n1:c></a5>
 #document
-| <a>
+| <a5>
 |   <b>
+|     {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org/example"
 |     <x>
 |   <n1:c>
 
 #data
-<a><b xmlns:n1="www.example.org/n1"><n1:x><n1:b/></n1:x></b><n1:c></a>
+<a6><b xmlns:n1="www.example.org/example"><n1:x><n1:b/></n1:x></b><n1:c></a6>
 #document
-| <a>
+| <a6>
 |   <b>
-|     <{www.example.org/n1}n1:x>
-|       <{www.example.org/n1}n1:b>
+|     {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org/example"
+|     <{www.example.org/example}n1:x>
+|       <{www.example.org/example}n1:b>
 |   <n1:c>
 
 #data
-<a><b xmlns:n1="www.example.org/n1"><n1:x xmlns:n1="www.example.org/n_1"><n1:b/></n1:x></b><n1:c></a>
+<a7><b xmlns:n1="www.example.org/n1"><n1:x xmlns:n1="www.example.org/new_1"><n1:b/></n1:x></b><n1:c></a7>
 #document
-| <a>
+| <a7>
 |   <b>
-|     <{www.example.org/n_1}n1:x>
-|       <{www.example.org/n_1}n1:b>
+|     {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org/n1"
+|     <{www.example.org/new_1}n1:x>
+|       {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org/new_1"
+|       <{www.example.org/new_1}n1:b>
 |   <n1:c>
 
 #data
-<a><b xmlns:n1="x"><n1:x xmlns:n1=""><n1:b><n1:b2 xmlns:n1="y"/></n1:b></n1:x><n1:c><n1:c2/></n1:c></b></a>
+<a8><b xmlns:n1="x"><n1:x xmlns:n1=""><n1:b><n1:b2 xmlns:n1="y"/></n1:b></n1:x><n1:c><n1:c2/></n1:c></b></a8>
 #document
-| <a>
+| <a8>
 |   <b>
+|     {http://www.w3.org/2000/xmlns/}xmlns:n1="x"
 |     <n1:x>
+|       {http://www.w3.org/2000/xmlns/}xmlns:n1=""
 |       <n1:b>
 |         <{y}n1:b2>
+|           {http://www.w3.org/2000/xmlns/}xmlns:n1="y"
 |     <{x}n1:c>
 |       <{x}n1:c2>
 
 #data
-<a xmlns="student" id="3"><b name="No NS"></a>
+<a9 xmlns="student" id="3"><b name="No NS"></a9>
 #document
-| <{student}a>
+| <{student}a9>
 |   id="3"
+|   {http://www.w3.org/2000/xmlns/}xmlns="student"
 |   <{student}b>
 |     name="No NS"
 
 #data
-<a xmlns:n1="www.example.org" n1:x="val" />
+<a10 xmlns:n1="www.example.org" n1:x="val" />
 #document
-| <a>
+| <a10>
+|   {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org"
 |   {www.example.org}n1:x="val"
 
 #data
-<a xmlns:n1="www.example.org" xmlns:n2="www.example.org" n1:x="val" n2:x="dupl"/>
+<a11 xmlns:n1="www.example.org" xmlns:n2="www.example.org" n1:x="val" n2:x="dupl"/>
 #document
-| <a>
+| <a11>
+|   {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org"
+|   {http://www.w3.org/2000/xmlns/}xmlns:n2="www.example.org"
 |   {www.example.org}n1:x="val"
 
 #data
-<a xmlns:n1="www.example.org" xmlns:n2="www.example.org"><bad a="1" a= "2"/><bad n1:a="1" n2:a="2"/></a>
+<a12 xmlns:n1="www.example.org" xmlns:n2="www.example.org"><bad a="1" a= "2"/><bad n1:a="1" n2:a="2"/></a>
 #document
-| <a>
+| <a12>
+|   {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org"
+|   {http://www.w3.org/2000/xmlns/}xmlns:n2="www.example.org"
 |   <bad>
 |     a="1"
 |   <bad>
 |     {www.example.org}n1:a="1"
 
 #data
-<a xmlns:n1="www.example.org" xmlns="www.example.org"><ok a="1" b="2"/><ok a="1" n1:a="2"/></a>
+<a13 xmlns:n1="www.example.org" xmlns="www.example.org"><ok a="1" b="2"/><ok a="1" n1:a="2"/></a>
 #document
-| <{www.example.org}a>
+| <{www.example.org}a13>
+|   {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org"
+|   {http://www.w3.org/2000/xmlns/}xmlns="www.example.org"
 |   <{www.example.org}ok>
 |     a="1"
 |     b="2"
@@ -106,9 +126,10 @@
 |     {www.example.org}n1:a="2"
 
 #data
-<a xmlns="www.example.org"><h><ok a="1"/></h><m><v n="v1"></v><v n="v2"></v></m></a>
+<a14 xmlns="www.example.org"><h><ok a="1"/></h><m><v n="v1"></v><v n="v2"></v></m></a14>
 #document
-| <{www.example.org}a>
+| <{www.example.org}a14>
+|   {http://www.w3.org/2000/xmlns/}xmlns="www.example.org"
 |   <{www.example.org}h>
 |     <{www.example.org}ok>
 |       a="1"
