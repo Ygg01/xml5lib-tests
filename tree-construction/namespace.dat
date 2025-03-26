@@ -102,7 +102,7 @@
 |   {www.example.org}n1:x="val"
 
 #data
-<a12 xmlns:n1="www.example.org" xmlns:n2="www.example.org"><bad a="1" a= "2"/><bad n1:a="1" n2:a="2"/></a>
+<a12 xmlns:n1="www.example.org" xmlns:n2="www.example.org"><bad a="1" a= "2"/><bad n1:a="1" n2:a="2"/></a12>
 #document
 | <a12>
 |   {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org"
@@ -113,7 +113,7 @@
 |     {www.example.org}n1:a="1"
 
 #data
-<a13 xmlns:n1="www.example.org" xmlns="www.example.org"><ok a="1" b="2"/><ok a="1" n1:a="2"/></a>
+<a13 xmlns:n1="www.example.org" xmlns="www.example.org"><ok a="1" b="2"/><ok a="1" n1:a="2"/></a13>
 #document
 | <{www.example.org}a13>
 |   {http://www.w3.org/2000/xmlns/}xmlns:n1="www.example.org"
